@@ -1,0 +1,6 @@
+title:
+  fr_fr: "Latitude\nLongitude"
+  en_us: "Latitiude\nLongitude"
+tooltip:
+  fr_fr: Affiche la latitude longitude du document actif en degrés
+  en_us: Shows the latitude and longitude of active document in degrees

@@ -1,0 +1,27 @@
+title:
+  fr_fr: Export IFC
+  en_us: IFC Export
+tooltip:
+  en_us : |
+    This tool can export one ore multiple revit files to ifc. 
+    -If there is an active document in the session, only the active file will be exported
+    -If there is no active document, the user will be asked to select the revit files to export. These file will be opened and export in the background.
+    For each file, the program exports all the views containing 'IFC' in their name. Each file is exported to the output folder prompted by the user with the following name : "revitfilename - viewname"
+    The script also creates a default view with setting that are specific to SNCF G&C's needs for the BIM GEM project (medium detail level, no subcategories...)
+    The tool retrieves all the settings of the ifc export from the json file, the ifc mapping file and the output folder
+    
+    Limitations : 
+    Only works for IFC 2x3 CV2 and default phase 
+    Option for exporting linked model files does not work
+  fr_fr : |
+    Cet outil peut exporter un ou plusieurs fichiers Revit en ifc.
+    -S'il y a un document actif dans la session, seul le fichier actif sera exporté
+    -S'il n'y a pas de document actif, l'utilisateur sera invité à sélectionner les fichiers Revit à exporter. Ces fichiers seront ouverts et exportés en arrière-plan.
+    Pour chaque fichier, le programme exporte toutes les vues contenant 'IFC' dans leur nom. Chaque fichier est exporté vers le dossier de sortie demandé par l'utilisateur avec le nom suivant : "revitfilename - viewname"
+    Le script crée également une vue par défaut avec des paramètres spécifiques aux besoins de SNCF G&C pour le projet BIM GEM (niveau de détail moyen, pas de sous-catégories...)
+    L'outil récupère tous les paramètres de l'export ifc depuis le fichier json, le fichier de mapping ifc et le dossier de sortie
+    
+    Limites :
+    Ne fonctionne que en IFC 2x3 CV2 et la phase par défaut
+    L'option d'exportation de fichiers de modèles liés ne fonctionne pas
+context : zero-doc

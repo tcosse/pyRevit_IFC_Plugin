@@ -1,0 +1,17 @@
+{
+    "extensions": [
+        {
+            "builtin": "False",
+            "type": "extension",
+            "rocket_mode_compatible": "False",
+            "name": "Extension - export IFC",
+            "description": "",
+            "author": "Thomas Cossé",
+            "author_profile": "",
+            "url": "",
+            "website": "",
+            "image": "",
+            "dependencies": []
+        }
+    ]
+}

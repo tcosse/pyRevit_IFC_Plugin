@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        Title="Inputs" Height="300" Width="500"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        Name="Inputs"
+        Closed="WindowClosed">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" VerticalAlignment="Bottom">Select JSON Configuration file :</Label>
+        <TextBox Name="JsonFilePath" 
+                 Margin="3,3,3,3"
+                 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"
+                 VerticalContentAlignment="Center"/>
+        <Label Grid.Row="2">Select IFC Mapping file :</Label>
+        <Button Name="JSONFileButton" Click="JSONFileButton_Click" Grid.Column="1" Grid.Row="1" Margin="3,3,3,3">Select .json File</Button>
+        <TextBox Name="IFCMappingFilePath" Grid.Row="3" Grid.Column="0" Margin="3,3,3,3"></TextBox>
+        <Button Name="IFCMappingFileButton" Click="IFCMappingFileButton_Click" Grid.Column="1" Grid.Row="3" Margin="3,3,3,3">Select IFC Mapping file</Button>
+        <Label Grid.Row="4" Grid.Column="0">Select Output Folder :</Label>
+        <TextBox Name="OutputFolderPath" Margin="3,3,3,3" Grid.Row="5" Grid.Column="0"></TextBox>
+        <Button Name="OutputFolder" Grid.Row="5" Click="OutputFolder_Click" Grid.Column="1" Margin="3,3,3,3">Select Output Folder</Button>
+        <Button Name="RunBatchIFCExport" Grid.Row="6" Grid.ColumnSpan="2" Margin="10,10,10,10" Click="RunBatchIFCExport_Click">Run Batch IFC Export</Button>
+    </Grid>
+</Window>

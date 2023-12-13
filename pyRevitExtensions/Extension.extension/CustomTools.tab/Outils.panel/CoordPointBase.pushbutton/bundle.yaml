@@ -1,0 +1,6 @@
+title:
+  fr_fr: "Coordonnées"
+  en_us: "Coordinates"
+tooltip:
+  fr_fr: "Affiche les coordonnées du point de base, l'origine interne et le nord projet pour tous les modèles ouverts"
+  en_us: "Shows the coordinates of base point, model origin and project north for all open models"
