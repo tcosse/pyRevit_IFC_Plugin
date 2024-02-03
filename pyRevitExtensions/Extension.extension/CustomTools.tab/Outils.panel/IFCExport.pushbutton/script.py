@@ -8,9 +8,7 @@
 #  |___| |_|  |_| |_|      \___/  |_| \_\   |_|   |____/
 # =========================================================
 
-#import pyrevit.revit
 
-#from gettext import install
 import clr
 clr.AddReference("RevitServices")
 clr.AddReference("System.Windows.Forms")
@@ -197,7 +195,7 @@ class NoActiveDocWindow(Windows.Window):
         wpf.LoadComponent(self, nooactivedoc_ui_file)
         self.RunBatchIFCExport = False
         self.isclosed=False
-        if prev_wind : 
+        if prev_wind :
             try :
                 self.RVTfilePaths.Text="\n".join(prev_wind["rvt_file_paths"])
                 self.rvt_file_paths = prev_wind["rvt_file_paths"]
@@ -209,7 +207,7 @@ class NoActiveDocWindow(Windows.Window):
             self.Json_file_path=prev_wind["Json_file_path"]
             self.OutputFolderPath.Text=prev_wind["Output_folder_path"]
             self.Output_folder_path=prev_wind["Output_folder_path"]
-        
+
     def RVTFileButton_Click(self, sender, args):
         openFileDlg = OpenFileDialog()
         openFileDlg.Multiselect = True
@@ -240,7 +238,7 @@ class NoActiveDocWindow(Windows.Window):
         self.Close()
         self.RunBatchIFCExport = True
 
-    def WindowClosed(self, sender, args): 
+    def WindowClosed(self, sender, args):
         self.isclosed=True
 
 class ActiveDoc_Window(Windows.Window):
@@ -248,7 +246,7 @@ class ActiveDoc_Window(Windows.Window):
         wpf.LoadComponent(self, activedoc_ui_file)
         self.RunBatchIFCExport = False
         self.isclosed=False
-        if prev_wind : 
+        if prev_wind :
             self.IFCMappingFilePath.Text=prev_wind["ifc_mapping_file_path"]
             self.ifc_mapping_file_path=prev_wind["ifc_mapping_file_path"]
             self.JsonFilePath.Text=prev_wind["Json_file_path"]
@@ -279,7 +277,7 @@ class ActiveDoc_Window(Windows.Window):
         self.Close()
         self.RunBatchIFCExport = True
 
-    def WindowClosed(self, sender, args): 
+    def WindowClosed(self, sender, args):
         self.isclosed=True
 
 #Export ifc of document
@@ -348,7 +346,7 @@ def IfcExport(doc):
 
         # Hide specific AREP subcategories in view
         for i in _getSpecificSubCategories:
-            try: new3dview.SetCategoryHidden(i.Id, True) 
+            try: new3dview.SetCategoryHidden(i.Id, True)
             except: pass
 
         # Apply Fine Detail Level for categories Pipe Fitting and Pipe Curves to new 3D view
@@ -376,13 +374,13 @@ def IfcExport(doc):
 # =========================================================
 
 #Check if there is an open document
-try : 
+try :
     doc = __revit__.ActiveUIDocument.Document
     activedoc=True
     doc_list=[doc]
 except :
     activedoc=False
-    
+
 #If the script has already been run, then load the previous input filepaths from the json file. The inputs will later be shown in the wpf window
 json_file=script.get_universal_data_file('PreviousInputs','json',True)
 try:
@@ -418,7 +416,7 @@ if activedoc :
         out_file.close()
 
     #If the window was closed by the user then stop the script and show a dialog
-    if active_doc_window.isclosing and not active_doc_window.RunBatchIFCExport:
+    if active_doc_window.isclosed and not active_doc_window.RunBatchIFCExport:
         script.exit()
 
 #If there is no active document then open the noactivedoc window
@@ -444,12 +442,12 @@ else :
         out_file.close()
 
     #If the window was closed by the user then stop the script and show a dialog
-    if noactivedoc_window.isclosed and not noactivedoc_window.RunBatchIFCExport:
-        script.exit()
+    # if noactivedoc_window.isclosed and not noactivedoc_window.RunBatchIFCExport:
+    #     script.exit()
 
 #If the file is a json file then the load options. If not end execution
 json_file_extension=os.path.splitext(Config_json)[-1].lower()
-if json_file_extension=='.json': 
+if json_file_extension=='.json':
     f=io.open(Config_json,mode='r', encoding='utf-8')
     ifc_options = json.loads(f.read())
     f.close()
@@ -474,7 +472,7 @@ print('\nIFC Mapping File : ' + ifc_mapping_file_path+"\n")
 if activedoc :
     name = doc.Title.replace('.rvt', '').replace('_détaché', "")
     IfcExport(doc)
-else : 
+else :
     for doc_path in doc_list:
         # Open doc
 
