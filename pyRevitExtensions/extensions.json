@@ -3,7 +3,7 @@
         {
             "builtin": "False",
             "type": "extension",
-            "rocket_mode_compatible": "False",
+            "rocket_mode_compatible": "True",
             "name": "Extension - export IFC",
             "description": "",
             "author": "Thomas Cossé",
