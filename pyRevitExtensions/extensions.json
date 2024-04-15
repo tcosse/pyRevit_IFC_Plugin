@@ -7,9 +7,9 @@
             "name": "Extension - export IFC",
             "description": "",
             "author": "Thomas Cossé",
-            "author_profile": "",
-            "url": "",
-            "website": "",
+            "author_profile": "https://github.com/tcosse/",
+            "url": "https://github.com/tcosse/pyRevit_IFC_Plugin.git",
+            "website": "https://github.com/tcosse/",
             "image": "",
             "dependencies": []
         }
