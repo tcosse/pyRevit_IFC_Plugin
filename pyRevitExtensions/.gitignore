@@ -1,0 +1,12 @@
+# Ignore all .log files
+*.log
+
+# Ignore all temporary files
+*.tmp
+
+# Ignore all files in the temp directory
+temp/
+
+# Ignore specific file paths
+ServerIFCExport.pushbutton/inputs.json
+path/to/specific/file2

@@ -1,9 +1,20 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
 
+import json
+import os
 from pyrevit import HOST_APP
 from Autodesk.Revit import DB
 from Autodesk.Revit.DB import Transaction
+
+# Load inputs from JSON file
+inputs_path = os.path.join(os.path.dirname(__file__), 'inputs.json')
+with open(inputs_path, 'r', encoding='utf-8') as f:
+    inputs = json.load(f)
+
+server_name = inputs["server_name"]
+ifc_folder = inputs["ifc_folder"]
+file_paths = inputs["file_paths"]
 
 def ifc_export_options():
     options = DB.IFCExportOptions()
@@ -48,28 +59,7 @@ def IfcExport(doc, options,ifc_folder):
         print("Error during export of file " +name+".rvt")
     t_IFC_Export.Commit()
 
-server_name = "SRV-PARIS"
 detach_from_central = True
-file_paths = [  
-    "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-P&I-1910.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-R&D-1910.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-RES-1910.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-SIT-1910.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-CH2-1910.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-P&I-1930.rvt",
-    "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-R&D-1930.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-RES-1930.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-P&I-1940.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-R&D-1940.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-RES-1940.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-A01-1960.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-P&I-1920.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-R&D-1920.rvt",                
-    "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-RES-1920.rvt"
-            ]
-
-ifc_folder = "C:\\Users\\t.cosse\\Documents\\Affaires\\3948-THAL_CHOL_MIXT\\IFC"
-
 
 for file_path in file_paths:
     model_path = DB.ServerPath(server_name, file_path)

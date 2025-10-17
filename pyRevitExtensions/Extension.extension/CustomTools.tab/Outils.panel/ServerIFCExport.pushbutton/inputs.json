@@ -1,0 +1,22 @@
+{
+    "server_name": "SRV-PARIS",
+    "ifc_folder": "C:\\Users\\t.cosse\\Documents\\Affaires\\3948-THAL_CHOL_MIXT\\IFC",
+    "file_paths": [  
+        "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-P&I-1910.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-R&D-1910.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-RES-1910.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-SIT-1910.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-ARC-MAQ-CH2-1910.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-P&I-1930.rvt",
+        "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-R&D-1930.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-CVC-MAQ-RES-1930.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-P&I-1940.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-R&D-1940.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-RES-1940.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-ELE-MAQ-A01-1960.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-P&I-1920.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-R&D-1920.rvt",                
+        "3948_THAL_CHOL_MIXT/3948-PAT-STR-MAQ-RES-1920.rvt"
+                ]
+
+}
