@@ -17,7 +17,7 @@ clr.AddReference("Microsoft.WindowsAPICodePack")
 
 from System import Windows
 import wpf
-from pyrevit import script
+from pyrevit import script, app
 from pyrevit.revit import RevitWrapper as rw
 import pyrevit.forms
 import inspect
@@ -64,7 +64,7 @@ def import_options_fromjson(ifc_options):
     options.AddOption("SitePlacement", str(ifc_options["SitePlacement"]))
     print("\tFileType : IFC")
     if ifc_options["SitePlacement"] == 0:
-        print("\tCoordinates Base : Project Base Point")
+        print("\tCoordinates Base : Shared Coordinates")
     if ifc_options["SitePlacement"] == 1:
         print("\tCoordinates Base : Survey Point")
     if ifc_options["SitePlacement"] == 2:
@@ -483,23 +483,23 @@ else :
 
         rw.close_doc(doc)
 
-# Get the file path of this python script
-src_file_path = inspect.getfile(lambda: None)
+# # Get the file path of this python script
+# src_file_path = inspect.getfile(lambda: None)
 
-# Copy the IFC Mapping txt file and the UserDefinedPsets File to the "ifcexportsettings" folder in the output folder
-ifcexportsettingsfolder = output_folder+"\\ifcexportsettings"
-if not os.path.exists(ifcexportsettingsfolder):
-    os.mkdir(ifcexportsettingsfolder)
-copy2(ifc_mapping_file_path, ifcexportsettingsfolder)
-copy2(ifc_options["ExportUserDefinedPsetsFileName"],ifcexportsettingsfolder)
-copy2(Config_json, ifcexportsettingsfolder)
+# # Copy the IFC Mapping txt file and the UserDefinedPsets File to the "ifcexportsettings" folder in the output folder
+# ifcexportsettingsfolder = output_folder+"\\ifcexportsettings"
+# if not os.path.exists(ifcexportsettingsfolder):
+#     os.mkdir(ifcexportsettingsfolder)
+# copy2(ifc_mapping_file_path, ifcexportsettingsfolder)
+# copy2(ifc_options["ExportUserDefinedPsetsFileName"],ifcexportsettingsfolder)
+# copy2(Config_json, ifcexportsettingsfolder)
 
-# Copy the list of the exported files to a txt file named exportedfiles.txt in the ifcexportsettings folder
-if not activedoc:
-    exportdata_path = ifcexportsettingsfolder+"\\exportedfiles.txt"
-    with open(exportdata_path, "a") as file:
-        file.write('Time :'+str(datetime.now())+"\n")
-        for doc_path in doc_list:
-            file.write("Exported file : "+doc_path+"\n")
-            file.write('IFC exported to'+ifc_folder+"\\"+name+".ifc"+"\n")
-        file.close()
+# # Copy the list of the exported files to a txt file named exportedfiles.txt in the ifcexportsettings folder
+# if not activedoc:
+#     exportdata_path = ifcexportsettingsfolder+"\\exportedfiles.txt"
+#     with open(exportdata_path, "a") as file:
+#         file.write('Time :'+str(datetime.now())+"\n")
+#         for doc_path in doc_list:
+#             file.write("Exported file : "+doc_path+"\n")
+#             file.write('IFC exported to'+ifc_folder+"\\"+name+".ifc"+"\n")
+#         file.close()
